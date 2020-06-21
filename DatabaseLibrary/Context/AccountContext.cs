@@ -3,7 +3,6 @@ using DatabaseLibrary.Models;
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using DatabaseLibrary.Models;
 using static System.Configuration.ConfigurationManager;
 
 namespace DatabaseLibrary.Context
