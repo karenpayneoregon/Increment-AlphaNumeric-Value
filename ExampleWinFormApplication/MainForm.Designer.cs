@@ -51,6 +51,8 @@
             // 
             // IncrementButton
             // 
+            this.IncrementButton.Image = global::ExampleWinFormApplication.Properties.Resources.Next_16x;
+            this.IncrementButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.IncrementButton.Location = new System.Drawing.Point(13, 222);
             this.IncrementButton.Name = "IncrementButton";
             this.IncrementButton.Size = new System.Drawing.Size(203, 23);
