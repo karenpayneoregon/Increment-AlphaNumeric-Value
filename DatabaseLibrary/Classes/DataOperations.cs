@@ -93,5 +93,21 @@ namespace DatabaseLibrary.Classes
             }
 
         }
+
+        public static async Task<List<Orders>> GetOrders()
+        {
+            var results = new List<Orders>();
+            using (var context = new UserContext())
+            {
+
+                await Task.Run(async () =>
+                {
+                    results = await context.Orders.AsNoTracking().ToListAsync();
+                });
+
+            }
+
+            return results;
+        }
     }
 }

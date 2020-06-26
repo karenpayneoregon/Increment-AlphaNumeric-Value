@@ -1,5 +1,5 @@
 ﻿{
-   "ContextClassName": "AccountContext",
+   "ContextClassName": "UserContext",
    "ContextNamespace": null,
    "DefaultDacpacSchema": null,
    "DoNotCombineNamespace": false,
@@ -14,11 +14,7 @@
    "Tables": [
       {
          "HasPrimaryKey": true,
-         "Name": "[dbo].[Customers]"
-      },
-      {
-         "HasPrimaryKey": true,
-         "Name": "[dbo].[CustomerSequence]"
+         "Name": "[dbo].[Orders]"
       }
    ],
    "UseDatabaseNames": true,

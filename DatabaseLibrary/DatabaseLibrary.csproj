@@ -138,8 +138,10 @@
     <Compile Include="Classes\CustomerItem.cs" />
     <Compile Include="Context\AccountContext.cs" />
     <Compile Include="Classes\DataOperations.cs" />
+    <Compile Include="Context\UserContext.cs" />
     <Compile Include="Models\Customers.cs" />
     <Compile Include="Models\CustomerSequence.cs" />
+    <Compile Include="Models\Orders.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

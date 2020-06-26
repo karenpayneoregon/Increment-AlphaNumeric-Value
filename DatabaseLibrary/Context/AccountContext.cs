@@ -27,7 +27,7 @@ namespace DatabaseLibrary.Context
             {
                 var connectionString =
                     $"Data Source={AppSettings["DatabaseServer"]};" +
-                    $"Initial Catalog={AppSettings["DefaultCatalog"]};" +
+                    $"Initial Catalog={AppSettings["AccountCatalog"]};" +
                     "Integrated Security=True";
 
                 optionsBuilder.UseSqlServer(connectionString);
