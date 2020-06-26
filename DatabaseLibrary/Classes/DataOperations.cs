@@ -9,6 +9,14 @@ using UtilityLibrary;
 
 namespace DatabaseLibrary.Classes
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <remarks>
+    /// No unnecessary var usage here, they are preferred
+    /// yet easier for newcomers to understand seeing variable
+    /// types.
+    /// </remarks>
     public class DataOperations
     {
         /// <summary>
@@ -17,7 +25,7 @@ namespace DatabaseLibrary.Classes
         /// <returns></returns>
         public static async Task<List<CustomerItem>> GetCustomers()
         {
-            var result = new List<CustomerItem>();
+            List<CustomerItem> result = new List<CustomerItem>();
 
             using (var context = new AccountContext())
             {
@@ -52,7 +60,7 @@ namespace DatabaseLibrary.Classes
 
                 if (string.IsNullOrWhiteSpace(customerSequence?.CurrentSequenceValue))
                 {
-                    sequenceValue = $"{customerSequence.SequencePreFix}0001";
+                    sequenceValue = $"{customerSequence?.SequencePreFix}0001";
                 }
                 else
                 {
@@ -76,7 +84,7 @@ namespace DatabaseLibrary.Classes
         {
             using (var context = new AccountContext())
             {
-                var result = context.Customers
+                CustomerSequence result = context.Customers
                     .Include(customer => customer.CustomerSequence)
                     .FirstOrDefault(customer => customer.CustomerIdentifier == customerIdentifier)?.CustomerSequence
                     .FirstOrDefault();
