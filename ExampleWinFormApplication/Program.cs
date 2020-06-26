@@ -16,7 +16,7 @@ namespace ExampleWinFormApplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new OrdersForm());
+            Application.Run(new MainForm());
         }
     }
 }

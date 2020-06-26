@@ -12,6 +12,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4150CD83-6264-410D-A831-99A7289B3152}"
 	ProjectSection(SolutionItems) = preProject
 		AccountsScript.sql = AccountsScript.sql
+		CustomerComputedAlphaNumeric.sql = CustomerComputedAlphaNumeric.sql
 		readme.md = readme.md
 		UsersScript.sql = UsersScript.sql
 	EndProjectSection

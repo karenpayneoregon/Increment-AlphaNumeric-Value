@@ -4,6 +4,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using static System.Configuration.ConfigurationManager;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace DatabaseLibrary.Context
 {
@@ -68,6 +69,25 @@ namespace DatabaseLibrary.Context
             });
 
             OnModelCreatingPartial(modelBuilder);
+        }
+
+        public void CheckAdditons() 
+        {
+            ChangeTracker.DetectChanges();
+
+            foreach (EntityEntry entry in ChangeTracker.Entries())
+            {
+                if (entry.State == EntityState.Added)
+                {
+                    Console.WriteLine(entry.Entity.GetType());
+
+                    if (entry.Entity is Customers ee)
+                    {
+                        Console.WriteLine(ee.CompanyName);
+                    }
+
+                }
+            }
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
