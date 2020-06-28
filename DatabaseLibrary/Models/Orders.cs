@@ -7,6 +7,12 @@ namespace DatabaseLibrary.Models
     {
         public int OrderID { get; set; }
         public int? CustomerIdentifier { get; set; }
+        /// <summary>
+        /// Uses a computed formula in the table definition
+        /// </summary>
+        /// <remarks>
+        /// ('A'+CONVERT([varchar](30),[OrderId]))
+        /// </remarks>
         public string OrderNumber { get; set; }
         public int? EmployeeID { get; set; }
         public DateTime? OrderDate { get; set; }

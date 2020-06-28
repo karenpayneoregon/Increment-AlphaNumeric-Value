@@ -3,6 +3,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DatabaseLibrary.Models
 {
+    /// <summary>
+    /// Table mapping as we have two different databases
+    /// with a order table.
+    /// </summary>
     [Table("Orders")]
     public partial class Order
     {

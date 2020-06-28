@@ -45,7 +45,6 @@ namespace ExampleWinFormApplication
             {
                 SequenceTextBox.Text = DataOperations.GetCustomerNextSequenceValue(currentCustomer.Id);
             }
-          
 
         }
         /// <summary>
@@ -74,7 +73,11 @@ namespace ExampleWinFormApplication
 
             if (Question($"Add new order for '{currentCustomer.Name}'"))
             {
-                DataOperations.NewOrder(currentCustomer.Id);
+                /*
+                 * In a real app this may be displayed in a DataGridView,
+                 * ListView etc.
+                 */
+                var order = DataOperations.NewOrder(currentCustomer.Id);
 
                 SequenceTextBox.Text = DataOperations.GetCustomerCurrentSequenceValue(currentCustomer.Id);
             }

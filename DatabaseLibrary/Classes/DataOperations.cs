@@ -41,14 +41,28 @@ namespace DatabaseLibrary.Classes
 
             return result;
         }
-
-        public static void NewOrder(int customerIdentifier = 2)
+        /// <summary>
+        /// Add a new order for customer
+        /// </summary>
+        /// <param name="customerIdentifier">Existing customer</param>
+        /// <remarks>
+        /// For a real application return the order or simply the order key
+        /// </remarks>
+        public static Order NewOrder(int customerIdentifier)
         {
             using (var context = new AccountContext())
             {
-                var order = new Order() {CustomerIdentifier = customerIdentifier, InvoiceNumber = GetCustomerNextSequenceValue(customerIdentifier), OrderDate = DateTime.Now};
+                var order = new Order()
+                {
+                    CustomerIdentifier = customerIdentifier,
+                    InvoiceNumber = GetCustomerNextSequenceValue(customerIdentifier),
+                    OrderDate = DateTime.Now
+                };
+
                 context.Orders.Add(order);
                 context.SaveChanges();
+
+                return order;
             }
         }
 
@@ -56,7 +70,14 @@ namespace DatabaseLibrary.Classes
         /// Increment customer sequence value
         /// </summary>
         /// <param name="customerIdentifier"></param>
-        /// <returns></returns>
+        /// <returns>next sequence value by customer identifier</returns>
+        /// <remarks>
+        /// What is not covered, resetting back to null when the sequence number reaches
+        /// 999. To reset, in the else check if IncrementAlphaNumericValue returns "999" if
+        /// so then set sequenceValue as done in the if e.g.
+        /// sequenceValue = $"{customerSequence?.SequencePreFix}0001";
+        /// That's it.
+        /// </remarks>
         public static string GetCustomerNextSequenceValue(int customerIdentifier)
         {
             using (var context = new AccountContext())
@@ -68,7 +89,6 @@ namespace DatabaseLibrary.Classes
                 CustomerSequence customerSequence = result?.CustomerSequence.FirstOrDefault();
                 var sequenceValue = "";
 
-
                 if (string.IsNullOrWhiteSpace(customerSequence?.CurrentSequenceValue))
                 {
                     sequenceValue = $"{customerSequence?.SequencePreFix}0001";
@@ -77,7 +97,6 @@ namespace DatabaseLibrary.Classes
                 {
                     sequenceValue = StringHelpers.IncrementAlphaNumericValue($"{customerSequence.CurrentSequenceValue}");
                 }
-
 
                 customerSequence.CurrentSequenceValue = sequenceValue;
                 context.SaveChanges();
@@ -89,8 +108,8 @@ namespace DatabaseLibrary.Classes
         /// Get current sequence number used for things like a
         /// new order or an account number.
         /// </summary>
-        /// <param name="customerIdentifier"></param>
-        /// <returns></returns>
+        /// <param name="customerIdentifier">Existing customer identifier</param>
+        /// <returns>current sequence or (none)</returns>
         public static string GetCustomerCurrentSequenceValue(int customerIdentifier)
         {
             using (var context = new AccountContext())
@@ -104,7 +123,10 @@ namespace DatabaseLibrary.Classes
             }
 
         }
-
+        /// <summary>
+        /// Display table where OrderNumber column is computed
+        /// </summary>
+        /// <returns></returns>
         public static async Task<List<Orders>> GetOrders()
         {
             var results = new List<Orders>();
