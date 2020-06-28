@@ -20,5 +20,6 @@ namespace DatabaseLibrary.Models
         public string Country { get; set; }
 
         public virtual ICollection<CustomerSequence> CustomerSequence { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

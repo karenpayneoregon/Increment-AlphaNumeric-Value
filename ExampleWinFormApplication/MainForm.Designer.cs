@@ -30,6 +30,7 @@
         {
             this.CustomersListBox = new System.Windows.Forms.ListBox();
             this.SequenceTextBox = new System.Windows.Forms.TextBox();
+            this.NewOrderButton = new System.Windows.Forms.Button();
             this.IncrementButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -49,6 +50,18 @@
             this.SequenceTextBox.Size = new System.Drawing.Size(200, 20);
             this.SequenceTextBox.TabIndex = 2;
             // 
+            // NewOrderButton
+            // 
+            this.NewOrderButton.Image = global::ExampleWinFormApplication.Properties.Resources.NewItem_16x;
+            this.NewOrderButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.NewOrderButton.Location = new System.Drawing.Point(13, 251);
+            this.NewOrderButton.Name = "NewOrderButton";
+            this.NewOrderButton.Size = new System.Drawing.Size(203, 23);
+            this.NewOrderButton.TabIndex = 4;
+            this.NewOrderButton.Text = "New order";
+            this.NewOrderButton.UseVisualStyleBackColor = true;
+            this.NewOrderButton.Click += new System.EventHandler(this.NewOrderButton_Click);
+            // 
             // IncrementButton
             // 
             this.IncrementButton.Image = global::ExampleWinFormApplication.Properties.Resources.Next_16x;
@@ -65,7 +78,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(234, 258);
+            this.ClientSize = new System.Drawing.Size(234, 293);
+            this.Controls.Add(this.NewOrderButton);
             this.Controls.Add(this.IncrementButton);
             this.Controls.Add(this.SequenceTextBox);
             this.Controls.Add(this.CustomersListBox);
@@ -83,6 +97,7 @@
         private System.Windows.Forms.ListBox CustomersListBox;
         private System.Windows.Forms.TextBox SequenceTextBox;
         private System.Windows.Forms.Button IncrementButton;
+        private System.Windows.Forms.Button NewOrderButton;
     }
 }
 

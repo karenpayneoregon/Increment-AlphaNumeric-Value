@@ -21,6 +21,7 @@ namespace DatabaseLibrary.Context
 
         public virtual DbSet<CustomerSequence> CustomerSequence { get; set; }
         public virtual DbSet<Customers> Customers { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -68,6 +69,17 @@ namespace DatabaseLibrary.Context
                 entity.Property(e => e.PostalCode).HasMaxLength(10);
             });
 
+            modelBuilder.Entity<Order>(entity =>
+            {
+                entity.HasKey(e => e.OrderId);
+
+                entity.HasOne(d => d.CustomerIdentifierNavigation)
+                    .WithMany(p => p.Orders)
+                    .HasForeignKey(d => d.CustomerIdentifier)
+                    .HasConstraintName("FK_Orders_Customers");
+            });
+
+
             OnModelCreatingPartial(modelBuilder);
         }
 
@@ -91,5 +103,49 @@ namespace DatabaseLibrary.Context
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+        /// <summary>
+        /// Custom to examine data
+        /// </summary>
+        /// <returns></returns>
+        public override int SaveChanges()
+        {
+            /*
+             * Change PeekChangesNone to PeekChanges
+             */
+            
+            #if PeekChanges
+
+            ChangeTracker.DetectChanges();
+            foreach (var entry in ChangeTracker.Entries())
+            {
+
+                if (entry.State == EntityState.Added || entry.State == EntityState.Modified)
+                {
+                    switch (entry.Entity)
+                    {
+                        case Customers entity:
+                        {
+                            var item = entity;
+                            break;
+                        }
+                        case CustomerSequence entity:
+                        {
+                            var item = entity;
+                            break;
+                        }
+                        case Order order:
+                        {
+                            var item = order;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            #endif
+
+
+            return base.SaveChanges();
+        }
     }
 }

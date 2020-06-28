@@ -20,7 +20,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;PeekChangesNone</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -141,6 +141,7 @@
     <Compile Include="Context\UserContext.cs" />
     <Compile Include="Models\Customers.cs" />
     <Compile Include="Models\CustomerSequence.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Orders.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

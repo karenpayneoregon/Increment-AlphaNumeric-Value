@@ -41,6 +41,17 @@ namespace DatabaseLibrary.Classes
 
             return result;
         }
+
+        public static void NewOrder(int customerIdentifier = 2)
+        {
+            using (var context = new AccountContext())
+            {
+                var order = new Order() {CustomerIdentifier = customerIdentifier, InvoiceNumber = GetCustomerNextSequenceValue(customerIdentifier), OrderDate = DateTime.Now};
+                context.Orders.Add(order);
+                context.SaveChanges();
+            }
+        }
+
         /// <summary>
         /// Increment customer sequence value
         /// </summary>

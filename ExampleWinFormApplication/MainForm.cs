@@ -56,10 +56,28 @@ namespace ExampleWinFormApplication
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (CustomersListBox.SelectedItem == null) return;
-
             var currentCustomer = (CustomerItem)CustomersListBox.SelectedItem;
 
             SequenceTextBox.Text = DataOperations.GetCustomerCurrentSequenceValue(currentCustomer.Id);
+        }
+        /// <summary>
+        /// Add a new order for current customer selected in list box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void NewOrderButton_Click(object sender, EventArgs e)
+        {
+
+            if (CustomersListBox.SelectedItem == null) return;
+
+            var currentCustomer = (CustomerItem)CustomersListBox.SelectedItem;
+
+            if (Question($"Add new order for '{currentCustomer.Name}'"))
+            {
+                DataOperations.NewOrder(currentCustomer.Id);
+
+                SequenceTextBox.Text = DataOperations.GetCustomerCurrentSequenceValue(currentCustomer.Id);
+            }
         }
     }
 }
