@@ -3,7 +3,7 @@
 namespace DatabaseLibrary.Models
 {
     /// <summary>
-    /// Container for storing and retriving sequence values
+    /// Container for storing and retrieving sequence values
     /// for customers
     /// </summary>
     public partial class CustomerSequence

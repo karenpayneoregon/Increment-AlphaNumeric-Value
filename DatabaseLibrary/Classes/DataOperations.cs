@@ -98,6 +98,7 @@ namespace DatabaseLibrary.Classes
                     sequenceValue = StringHelpers.IncrementAlphaNumericValue($"{customerSequence.CurrentSequenceValue}");
                 }
 
+                // ReSharper disable once PossibleNullReferenceException
                 customerSequence.CurrentSequenceValue = sequenceValue;
                 context.SaveChanges();
                 return sequenceValue;
