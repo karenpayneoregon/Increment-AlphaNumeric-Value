@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.GenerateButton = new System.Windows.Forms.Button();
+            this.GenerateFromStringButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox1
@@ -40,22 +40,22 @@
             this.listBox1.Size = new System.Drawing.Size(185, 212);
             this.listBox1.TabIndex = 0;
             // 
-            // GenerateButton
+            // GenerateFromStringButton
             // 
-            this.GenerateButton.Location = new System.Drawing.Point(199, 12);
-            this.GenerateButton.Name = "GenerateButton";
-            this.GenerateButton.Size = new System.Drawing.Size(75, 23);
-            this.GenerateButton.TabIndex = 1;
-            this.GenerateButton.Text = "Generate";
-            this.GenerateButton.UseVisualStyleBackColor = true;
-            this.GenerateButton.Click += new System.EventHandler(this.GenerateButton_Click);
+            this.GenerateFromStringButton.Location = new System.Drawing.Point(199, 12);
+            this.GenerateFromStringButton.Name = "GenerateFromStringButton";
+            this.GenerateFromStringButton.Size = new System.Drawing.Size(191, 23);
+            this.GenerateFromStringButton.TabIndex = 1;
+            this.GenerateFromStringButton.Text = "Generate from string";
+            this.GenerateFromStringButton.UseVisualStyleBackColor = true;
+            this.GenerateFromStringButton.Click += new System.EventHandler(this.GenerateFromStringButtonButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(291, 234);
-            this.Controls.Add(this.GenerateButton);
+            this.ClientSize = new System.Drawing.Size(402, 234);
+            this.Controls.Add(this.GenerateFromStringButton);
             this.Controls.Add(this.listBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
@@ -68,7 +68,7 @@
         #endregion
 
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button GenerateButton;
+        private System.Windows.Forms.Button GenerateFromStringButton;
     }
 }
 
